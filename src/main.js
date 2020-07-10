@@ -8,6 +8,7 @@ import i18n from './i18n'
 import './filter' // 过滤器
 import 'lib-flexible/flexible'
 import deviceQueries from './plugins/device-queries'
+import './registerServiceWorker'
 
 Vue.use(deviceQueries, {
   phone: 'max-width: 567px',
