@@ -360,8 +360,11 @@ export default {
     }
   }
   @media screen and (max-width: 568px) {
+    .bg-introduce {
+      font-size: 50px;
+    }
     .bg-introduce-sub {
-      font-size: 16px; /*no*/
+      font-size: 14px; /*no*/
       font-weight: normal;
       top: 55%;
     }
@@ -372,7 +375,7 @@ export default {
       flex-basis: 100%;
     }
     .bg-quick{
-      top: 76%;
+      top: 78%;
     }
     .bg-quick-btn {
       background-position: 15px center;
