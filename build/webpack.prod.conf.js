@@ -11,6 +11,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
+const PrerenderSPAPlugin = require('prerender-spa-plugin') // 通过预渲染提升SPA首屏加载性能
+
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : require('../config/prod.env')
@@ -119,7 +121,12 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+
+    new PrerenderSPAPlugin({
+      staticDir: path.join(__dirname, '../dist'), // 输出目录的绝对路径
+      routes: ['/',  '/community', '/blogs', '/blogs/post/HyyinQ9mI'], // 预渲染的路由
+    })
   ]
 })
 
